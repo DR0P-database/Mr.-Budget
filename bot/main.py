@@ -14,4 +14,4 @@ async def message_start_bot(message: types.Message):  # Тип для чтобы
 
 async def start():
     await bot.delete_webhook(drop_pending_updates=True)  # Пропускаем сообщения которые пришли пока бот был оффлайн
-    await dp.start_polling(bot)  # Запускаем бота и слушаем сервер ТГ
+    await dp.start_polling(bot, allowed_updates=settings.ALLOWED_UPDATES)  # Запускаем бота и слушаем сервер ТГ
