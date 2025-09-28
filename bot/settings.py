@@ -7,6 +7,7 @@ load_dotenv()
 
 class Settings:
     TOKEN_BOT = os.getenv("TOKEN_BOT")
+    ALLOWED_UPDATES = ['message',]
     
 @lru_cache()
 def get_settings():
