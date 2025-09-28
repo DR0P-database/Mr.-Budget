@@ -19,5 +19,5 @@ dp.include_router(user_chat_router)
 async def start():
     await bot.delete_webhook(drop_pending_updates=True)  # Пропускаем сообщения которые пришли пока бот был оффлайн
     # bot.delete_my_commands(scope=types.BotCommandScopeAllPrivateChats())  # Удаляем команды бота в личке
-    bot.set_my_commands(commands=private_chat_cmds, scope=types.BotCommandScopeAllPrivateChats())  # Команды бота в личном чате
+    await bot.set_my_commands(commands=private_chat_cmds, scope=types.BotCommandScopeAllPrivateChats())  # Команды бота в личном чате
     await dp.start_polling(bot, allowed_updates=settings.ALLOWED_UPDATES)  # Запускаем бота и слушаем сервер ТГ
