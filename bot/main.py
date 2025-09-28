@@ -1,7 +1,7 @@
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import CommandStart
 from bot.settings import get_settings
-from bot.handlers.user_handler import user_router
+from bot.handlers.user_handler import user_chat_router
 from bot.common.bot_cmds_lst import private_chat_cmds
 
 
@@ -14,7 +14,7 @@ dp = Dispatcher()  # Обработчик всех сообщений и тп б
 async def message_start_bot(message: types.Message):  # Тип для чтобы понимал что это сообщение
     await message.answer(text="Hello world")
 
-dp.include_router(user_router)
+dp.include_router(user_chat_router)
 
 async def start():
     await bot.delete_webhook(drop_pending_updates=True)  # Пропускаем сообщения которые пришли пока бот был оффлайн
